@@ -48,7 +48,7 @@ router.get('/sensor/:sensor1:sensor2', (req, res, next) => {
   }
 });
 
-
+//https://f12-telebot.herokuapp.com/api/test/f12Done
 router.get('/test/:key', function(req, res, next){
     bot.sendMessage(
             global_msg_id, //msg.id
