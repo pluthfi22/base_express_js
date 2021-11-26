@@ -10,16 +10,26 @@ const bot = new TelegramBot(token, {polling: true});
 
 let global_msg_id;
 // Main Menu Bot
-bot.onText(/\/showUrlPls/, (msg) => {
+bot.onText(/\/start/, (msg) => {
+    global_msg_id = msg.chat.id;
+    bot.sendMessage(
+        global_msg_id,
+        `hello ${msg.chat.first_name}, welcome...\n
+        click /ShowUrlPls`
+    );
+});
+
+bot.onText(/\/ShowUrlPls/, (msg) => {
     global_msg_id = msg.chat.id;
     bot.sendMessage(
         global_msg_id,
         `
         hello ${msg.chat.first_name}, welcome...\n
         https://f12-telebot.herokuapp.com/api/test/f12Done
+        
+        `
     );
 });
-
 bot.on('message', (msg) => {
   console.log(msg);
 });
