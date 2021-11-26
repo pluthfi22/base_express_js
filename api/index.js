@@ -10,12 +10,13 @@ const bot = new TelegramBot(token, {polling: true});
 
 let global_msg_id;
 // Main Menu Bot
-bot.onText(/\/start/, (msg) => {
+bot.onText(/\/showUrlPls/, (msg) => {
     global_msg_id = msg.chat.id;
     bot.sendMessage(
         global_msg_id,
-        `hello ${msg.chat.first_name}, welcome...\n
-        click /predict`
+        `
+        hello ${msg.chat.first_name}, welcome...\n
+        https://f12-telebot.herokuapp.com/api/test/f12Done
     );
 });
 
