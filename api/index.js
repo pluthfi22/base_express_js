@@ -15,22 +15,21 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `hello ${msg.chat.first_name}, welcome...\n
-        click /ShowUrlPls`
+        click /show_url`
     );
 });
 
-bot.onText(/\/ShowUrlPls/, (msg) => {
+bot.onText(/\/show_url/, (msg) => {
     global_msg_id = msg.chat.id;
     bot.sendMessage(
         global_msg_id,
         `
-        hello ${msg.chat.first_name}, welcome...\n
-        https://forum-telebot.herokuapp.com/api/test/f12Done \n
-        http://forum-telebot.herokuapp.com/api/sensor/123/65/78
-        
+            https://forum-telebot.herokuapp.com/api/sensor/123/65/78 \n
+            https://forum-telebot.herokuapp.com/api/test/cobacoba
         `
     );
 });
+
 bot.on('message', (msg) => {
   console.log(msg);
 });
@@ -44,15 +43,20 @@ router.get('/', (req, res, next) => {
   });
 });
 
-
-router.get('/sensor/:sensor1:sensor2', (req, res, next) => {
+// https://esp-telebot.herokuapp.com/api/sensor/123/65/78
+router.get('/sensor/:sensor1/:sensor2/:sensor3', (req, res, next) => {
   try {
+      bot.sendMessage(
+            global_msg_id, //msg.id
+            `Pembacaan Sensor:: ${req.params.sensor1}, ${req.params.sensor2}, ${req.params.sensor3}`
+     );
       res.json({
         "status": 202,
         "messgae": "Success",
         "data": {
           "sensor_1": req.params.sensor1,
-          "sensor_2": req.params.sensor2
+          "sensor_2": req.params.sensor2,
+          "sensor_3": req.params.sensor3
         }
       });
   } catch (err) {
@@ -60,7 +64,7 @@ router.get('/sensor/:sensor1:sensor2', (req, res, next) => {
   }
 });
 
-//https://f12-telebot.herokuapp.com/api/test/f12Done
+// https://esp-telebot.herokuapp.com/api/test/cobacoba
 router.get('/test/:key', function(req, res, next){
     bot.sendMessage(
             global_msg_id, //msg.id
