@@ -25,8 +25,8 @@ bot.onText(/\/ShowUrlPls/, (msg) => {
         global_msg_id,
         `
         hello ${msg.chat.first_name}, welcome...\n
-        https://forum-telebot.herokuapp.com/api/test/f12Done
-        http://forum-telebot.herokuapp.com/api/sensor/
+        https://forum-telebot.herokuapp.com/api/test/f12Done \n
+        http://forum-telebot.herokuapp.com/api/sensor/123/65/78
         
         `
     );
