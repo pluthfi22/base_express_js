@@ -26,6 +26,7 @@ bot.onText(/\/ShowUrlPls/, (msg) => {
         `
         hello ${msg.chat.first_name}, welcome...\n
         https://f12-telebot.herokuapp.com/api/test/f12Done
+        http://f12-telebot.herokuapp.com/api/sensor/
         
         `
     );
